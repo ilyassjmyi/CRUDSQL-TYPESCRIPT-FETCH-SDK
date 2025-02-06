@@ -156,7 +156,7 @@ export class DynamicApi extends runtime.BaseAPI {
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
-
+        headerParameters['Content-Type'] = 'application/json';
         const response = await this.request({
             path: `/{model}`.replace(`{${"model"}}`, encodeURIComponent(String(requestParameters['model']))),
             method: 'GET',
