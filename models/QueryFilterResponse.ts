@@ -73,7 +73,7 @@ export function QueryFilterResponseFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'data': json['data'] == null ? undefined : json['data'],
+        'data': json['data'] == null ? json : json['data'],
         'page': json['page'] == null ? undefined : json['page'],
         'pageSize': json['page_size'] == null ? undefined : json['page_size'],
         'total': json['total'] == null ? undefined : json['total'],
