@@ -1,5 +1,3 @@
-/* tslint:disable */
-/* eslint-disable */
 /**
  * CrudSQL API
  * A powerful dynamic CRUD API engine that automatically generates RESTful endpoints for your data models CrudSQL provides automatic CRUD operations, filtering, pagination, and sorting capabilities for any data model. Features: - Automatic REST API generation - Dynamic model support - Complex filtering and querying - Pagination and sorting - Swagger documentation - Multiple database support (SQL & NoSQL)
@@ -11,8 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-
-import { mapValues } from '../runtime';
 /**
  * Paginated response containing filtered entities and metadata Used for both simple list operations and complex filtered queries
  * @export
@@ -55,48 +51,11 @@ export interface QueryFilterResponse {
      */
     totalPages?: number;
 }
-
 /**
  * Check if a given object implements the QueryFilterResponse interface.
  */
-export function instanceOfQueryFilterResponse(value: object): value is QueryFilterResponse {
-    return true;
-}
-
-export function QueryFilterResponseFromJSON(json: any): QueryFilterResponse {
-    return QueryFilterResponseFromJSONTyped(json, false);
-}
-
-export function QueryFilterResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): QueryFilterResponse {
-    if (json == null) {
-        return json;
-    }
-    return {
-        
-        'data': json['data'] == null ? undefined : json['data'],
-        'page': json['page'] == null ? undefined : json['page'],
-        'pageSize': json['page_size'] == null ? undefined : json['page_size'],
-        'total': json['total'] == null ? undefined : json['total'],
-        'totalPages': json['total_pages'] == null ? undefined : json['total_pages'],
-    };
-}
-
-export function QueryFilterResponseToJSON(json: any): QueryFilterResponse {
-    return QueryFilterResponseToJSONTyped(json, false);
-}
-
-export function QueryFilterResponseToJSONTyped(value?: QueryFilterResponse | null, ignoreDiscriminator: boolean = false): any {
-    if (value == null) {
-        return value;
-    }
-
-    return {
-        
-        'data': value['data'],
-        'page': value['page'],
-        'page_size': value['pageSize'],
-        'total': value['total'],
-        'total_pages': value['totalPages'],
-    };
-}
-
+export declare function instanceOfQueryFilterResponse(value: object): value is QueryFilterResponse;
+export declare function QueryFilterResponseFromJSON(json: any): QueryFilterResponse;
+export declare function QueryFilterResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): QueryFilterResponse;
+export declare function QueryFilterResponseToJSON(json: any): QueryFilterResponse;
+export declare function QueryFilterResponseToJSONTyped(value?: QueryFilterResponse | null, ignoreDiscriminator?: boolean): any;

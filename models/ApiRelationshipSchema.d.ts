@@ -1,5 +1,3 @@
-/* tslint:disable */
-/* eslint-disable */
 /**
  * CrudSQL API
  * A powerful dynamic CRUD API engine that automatically generates RESTful endpoints for your data models CrudSQL provides automatic CRUD operations, filtering, pagination, and sorting capabilities for any data model. Features: - Automatic REST API generation - Dynamic model support - Complex filtering and querying - Pagination and sorting - Swagger documentation - Multiple database support (SQL & NoSQL)
@@ -11,8 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-
-import { mapValues } from '../runtime';
 /**
  * Schema information for a model relationship
  * @export
@@ -38,44 +34,11 @@ export interface ApiRelationshipSchema {
      */
     type?: string;
 }
-
 /**
  * Check if a given object implements the ApiRelationshipSchema interface.
  */
-export function instanceOfApiRelationshipSchema(value: object): value is ApiRelationshipSchema {
-    return true;
-}
-
-export function ApiRelationshipSchemaFromJSON(json: any): ApiRelationshipSchema {
-    return ApiRelationshipSchemaFromJSONTyped(json, false);
-}
-
-export function ApiRelationshipSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiRelationshipSchema {
-    if (json == null) {
-        return json;
-    }
-    return {
-        
-        'name': json['name'] == null ? undefined : json['name'],
-        'relatedModel': json['relatedModel'] == null ? undefined : json['relatedModel'],
-        'type': json['type'] == null ? undefined : json['type'],
-    };
-}
-
-export function ApiRelationshipSchemaToJSON(json: any): ApiRelationshipSchema {
-    return ApiRelationshipSchemaToJSONTyped(json, false);
-}
-
-export function ApiRelationshipSchemaToJSONTyped(value?: ApiRelationshipSchema | null, ignoreDiscriminator: boolean = false): any {
-    if (value == null) {
-        return value;
-    }
-
-    return {
-        
-        'name': value['name'],
-        'relatedModel': value['relatedModel'],
-        'type': value['type'],
-    };
-}
-
+export declare function instanceOfApiRelationshipSchema(value: object): value is ApiRelationshipSchema;
+export declare function ApiRelationshipSchemaFromJSON(json: any): ApiRelationshipSchema;
+export declare function ApiRelationshipSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiRelationshipSchema;
+export declare function ApiRelationshipSchemaToJSON(json: any): ApiRelationshipSchema;
+export declare function ApiRelationshipSchemaToJSONTyped(value?: ApiRelationshipSchema | null, ignoreDiscriminator?: boolean): any;

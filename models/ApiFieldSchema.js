@@ -1,3 +1,4 @@
+"use strict";
 /* tslint:disable */
 /* eslint-disable */
 /**
@@ -11,71 +12,42 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-
-import { mapValues } from '../runtime';
-/**
- * Schema information for a model field
- * @export
- * @interface ApiFieldSchema
- */
-export interface ApiFieldSchema {
-    /**
-     * Name of the field
-     * @type {string}
-     * @memberof ApiFieldSchema
-     */
-    name?: string;
-    /**
-     * List of supported operators for this field
-     * @type {Array<string>}
-     * @memberof ApiFieldSchema
-     */
-    operators?: Array<string>;
-    /**
-     * Type of the field (e.g., string, int)
-     * @type {string}
-     * @memberof ApiFieldSchema
-     */
-    type?: string;
-}
-
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ApiFieldSchemaToJSONTyped = exports.ApiFieldSchemaToJSON = exports.ApiFieldSchemaFromJSONTyped = exports.ApiFieldSchemaFromJSON = exports.instanceOfApiFieldSchema = void 0;
 /**
  * Check if a given object implements the ApiFieldSchema interface.
  */
-export function instanceOfApiFieldSchema(value: object): value is ApiFieldSchema {
+function instanceOfApiFieldSchema(value) {
     return true;
 }
-
-export function ApiFieldSchemaFromJSON(json: any): ApiFieldSchema {
+exports.instanceOfApiFieldSchema = instanceOfApiFieldSchema;
+function ApiFieldSchemaFromJSON(json) {
     return ApiFieldSchemaFromJSONTyped(json, false);
 }
-
-export function ApiFieldSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiFieldSchema {
+exports.ApiFieldSchemaFromJSON = ApiFieldSchemaFromJSON;
+function ApiFieldSchemaFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
     return {
-        
         'name': json['name'] == null ? undefined : json['name'],
         'operators': json['operators'] == null ? undefined : json['operators'],
         'type': json['type'] == null ? undefined : json['type'],
     };
 }
-
-export function ApiFieldSchemaToJSON(json: any): ApiFieldSchema {
+exports.ApiFieldSchemaFromJSONTyped = ApiFieldSchemaFromJSONTyped;
+function ApiFieldSchemaToJSON(json) {
     return ApiFieldSchemaToJSONTyped(json, false);
 }
-
-export function ApiFieldSchemaToJSONTyped(value?: ApiFieldSchema | null, ignoreDiscriminator: boolean = false): any {
+exports.ApiFieldSchemaToJSON = ApiFieldSchemaToJSON;
+function ApiFieldSchemaToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
     }
-
     return {
-        
         'name': value['name'],
         'operators': value['operators'],
         'type': value['type'],
     };
 }
-
+exports.ApiFieldSchemaToJSONTyped = ApiFieldSchemaToJSONTyped;

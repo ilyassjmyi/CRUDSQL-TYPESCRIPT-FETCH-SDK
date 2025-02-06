@@ -1,3 +1,4 @@
+"use strict";
 /* tslint:disable */
 /* eslint-disable */
 /**
@@ -11,63 +12,40 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-
-import { mapValues } from '../runtime';
-/**
- * 
- * @export
- * @interface QueryEntityWithRelations
- */
-export interface QueryEntityWithRelations {
-    /**
-     * 
-     * @type {object}
-     * @memberof QueryEntityWithRelations
-     */
-    mainEntity?: object;
-    /**
-     * 
-     * @type {{ [key: string]: Array<object>; }}
-     * @memberof QueryEntityWithRelations
-     */
-    relations?: { [key: string]: Array<object>; };
-}
-
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.QueryEntityWithRelationsToJSONTyped = exports.QueryEntityWithRelationsToJSON = exports.QueryEntityWithRelationsFromJSONTyped = exports.QueryEntityWithRelationsFromJSON = exports.instanceOfQueryEntityWithRelations = void 0;
 /**
  * Check if a given object implements the QueryEntityWithRelations interface.
  */
-export function instanceOfQueryEntityWithRelations(value: object): value is QueryEntityWithRelations {
+function instanceOfQueryEntityWithRelations(value) {
     return true;
 }
-
-export function QueryEntityWithRelationsFromJSON(json: any): QueryEntityWithRelations {
+exports.instanceOfQueryEntityWithRelations = instanceOfQueryEntityWithRelations;
+function QueryEntityWithRelationsFromJSON(json) {
     return QueryEntityWithRelationsFromJSONTyped(json, false);
 }
-
-export function QueryEntityWithRelationsFromJSONTyped(json: any, ignoreDiscriminator: boolean): QueryEntityWithRelations {
+exports.QueryEntityWithRelationsFromJSON = QueryEntityWithRelationsFromJSON;
+function QueryEntityWithRelationsFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
     return {
-        
         'mainEntity': json['mainEntity'] == null ? undefined : json['mainEntity'],
         'relations': json['relations'] == null ? undefined : json['relations'],
     };
 }
-
-export function QueryEntityWithRelationsToJSON(json: any): QueryEntityWithRelations {
+exports.QueryEntityWithRelationsFromJSONTyped = QueryEntityWithRelationsFromJSONTyped;
+function QueryEntityWithRelationsToJSON(json) {
     return QueryEntityWithRelationsToJSONTyped(json, false);
 }
-
-export function QueryEntityWithRelationsToJSONTyped(value?: QueryEntityWithRelations | null, ignoreDiscriminator: boolean = false): any {
+exports.QueryEntityWithRelationsToJSON = QueryEntityWithRelationsToJSON;
+function QueryEntityWithRelationsToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
     }
-
     return {
-        
         'mainEntity': value['mainEntity'],
         'relations': value['relations'],
     };
 }
-
+exports.QueryEntityWithRelationsToJSONTyped = QueryEntityWithRelationsToJSONTyped;

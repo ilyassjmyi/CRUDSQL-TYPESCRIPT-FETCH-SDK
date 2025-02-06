@@ -1,3 +1,4 @@
+"use strict";
 /* tslint:disable */
 /* eslint-disable */
 /**
@@ -11,71 +12,42 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-
-import { mapValues } from '../runtime';
-/**
- * Schema information for a model relationship
- * @export
- * @interface ApiRelationshipSchema
- */
-export interface ApiRelationshipSchema {
-    /**
-     * Name of the relationship
-     * @type {string}
-     * @memberof ApiRelationshipSchema
-     */
-    name?: string;
-    /**
-     * Name of the related model
-     * @type {string}
-     * @memberof ApiRelationshipSchema
-     */
-    relatedModel?: string;
-    /**
-     * Type of relationship (hasOne, hasMany)
-     * @type {string}
-     * @memberof ApiRelationshipSchema
-     */
-    type?: string;
-}
-
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ApiRelationshipSchemaToJSONTyped = exports.ApiRelationshipSchemaToJSON = exports.ApiRelationshipSchemaFromJSONTyped = exports.ApiRelationshipSchemaFromJSON = exports.instanceOfApiRelationshipSchema = void 0;
 /**
  * Check if a given object implements the ApiRelationshipSchema interface.
  */
-export function instanceOfApiRelationshipSchema(value: object): value is ApiRelationshipSchema {
+function instanceOfApiRelationshipSchema(value) {
     return true;
 }
-
-export function ApiRelationshipSchemaFromJSON(json: any): ApiRelationshipSchema {
+exports.instanceOfApiRelationshipSchema = instanceOfApiRelationshipSchema;
+function ApiRelationshipSchemaFromJSON(json) {
     return ApiRelationshipSchemaFromJSONTyped(json, false);
 }
-
-export function ApiRelationshipSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiRelationshipSchema {
+exports.ApiRelationshipSchemaFromJSON = ApiRelationshipSchemaFromJSON;
+function ApiRelationshipSchemaFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
     return {
-        
         'name': json['name'] == null ? undefined : json['name'],
         'relatedModel': json['relatedModel'] == null ? undefined : json['relatedModel'],
         'type': json['type'] == null ? undefined : json['type'],
     };
 }
-
-export function ApiRelationshipSchemaToJSON(json: any): ApiRelationshipSchema {
+exports.ApiRelationshipSchemaFromJSONTyped = ApiRelationshipSchemaFromJSONTyped;
+function ApiRelationshipSchemaToJSON(json) {
     return ApiRelationshipSchemaToJSONTyped(json, false);
 }
-
-export function ApiRelationshipSchemaToJSONTyped(value?: ApiRelationshipSchema | null, ignoreDiscriminator: boolean = false): any {
+exports.ApiRelationshipSchemaToJSON = ApiRelationshipSchemaToJSON;
+function ApiRelationshipSchemaToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
     }
-
     return {
-        
         'name': value['name'],
         'relatedModel': value['relatedModel'],
         'type': value['type'],
     };
 }
-
+exports.ApiRelationshipSchemaToJSONTyped = ApiRelationshipSchemaToJSONTyped;

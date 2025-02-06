@@ -1,3 +1,4 @@
+"use strict";
 /* tslint:disable */
 /* eslint-disable */
 /**
@@ -11,55 +12,38 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-
-import { mapValues } from '../runtime';
-/**
- * Error response containing an error message
- * @export
- * @interface ApiErrorResponse
- */
-export interface ApiErrorResponse {
-    /**
-     * @Description A descriptive error message
-     * @type {string}
-     * @memberof ApiErrorResponse
-     */
-    message?: string;
-}
-
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ApiErrorResponseToJSONTyped = exports.ApiErrorResponseToJSON = exports.ApiErrorResponseFromJSONTyped = exports.ApiErrorResponseFromJSON = exports.instanceOfApiErrorResponse = void 0;
 /**
  * Check if a given object implements the ApiErrorResponse interface.
  */
-export function instanceOfApiErrorResponse(value: object): value is ApiErrorResponse {
+function instanceOfApiErrorResponse(value) {
     return true;
 }
-
-export function ApiErrorResponseFromJSON(json: any): ApiErrorResponse {
+exports.instanceOfApiErrorResponse = instanceOfApiErrorResponse;
+function ApiErrorResponseFromJSON(json) {
     return ApiErrorResponseFromJSONTyped(json, false);
 }
-
-export function ApiErrorResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiErrorResponse {
+exports.ApiErrorResponseFromJSON = ApiErrorResponseFromJSON;
+function ApiErrorResponseFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
     return {
-        
         'message': json['message'] == null ? undefined : json['message'],
     };
 }
-
-export function ApiErrorResponseToJSON(json: any): ApiErrorResponse {
+exports.ApiErrorResponseFromJSONTyped = ApiErrorResponseFromJSONTyped;
+function ApiErrorResponseToJSON(json) {
     return ApiErrorResponseToJSONTyped(json, false);
 }
-
-export function ApiErrorResponseToJSONTyped(value?: ApiErrorResponse | null, ignoreDiscriminator: boolean = false): any {
+exports.ApiErrorResponseToJSON = ApiErrorResponseToJSON;
+function ApiErrorResponseToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
     }
-
     return {
-        
         'message': value['message'],
     };
 }
-
+exports.ApiErrorResponseToJSONTyped = ApiErrorResponseToJSONTyped;

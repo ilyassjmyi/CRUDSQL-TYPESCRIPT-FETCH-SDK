@@ -1,5 +1,3 @@
-/* tslint:disable */
-/* eslint-disable */
 export * from './ApiErrorResponse';
 export * from './ApiFieldSchema';
 export * from './ApiModelSchema';

@@ -1,5 +1,3 @@
-/* tslint:disable */
-/* eslint-disable */
 /**
  * CrudSQL API
  * A powerful dynamic CRUD API engine that automatically generates RESTful endpoints for your data models CrudSQL provides automatic CRUD operations, filtering, pagination, and sorting capabilities for any data model. Features: - Automatic REST API generation - Dynamic model support - Complex filtering and querying - Pagination and sorting - Swagger documentation - Multiple database support (SQL & NoSQL)
@@ -11,8 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-
-import { mapValues } from '../runtime';
 /**
  * Schema information for a model field
  * @export
@@ -38,44 +34,11 @@ export interface ApiFieldSchema {
      */
     type?: string;
 }
-
 /**
  * Check if a given object implements the ApiFieldSchema interface.
  */
-export function instanceOfApiFieldSchema(value: object): value is ApiFieldSchema {
-    return true;
-}
-
-export function ApiFieldSchemaFromJSON(json: any): ApiFieldSchema {
-    return ApiFieldSchemaFromJSONTyped(json, false);
-}
-
-export function ApiFieldSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiFieldSchema {
-    if (json == null) {
-        return json;
-    }
-    return {
-        
-        'name': json['name'] == null ? undefined : json['name'],
-        'operators': json['operators'] == null ? undefined : json['operators'],
-        'type': json['type'] == null ? undefined : json['type'],
-    };
-}
-
-export function ApiFieldSchemaToJSON(json: any): ApiFieldSchema {
-    return ApiFieldSchemaToJSONTyped(json, false);
-}
-
-export function ApiFieldSchemaToJSONTyped(value?: ApiFieldSchema | null, ignoreDiscriminator: boolean = false): any {
-    if (value == null) {
-        return value;
-    }
-
-    return {
-        
-        'name': value['name'],
-        'operators': value['operators'],
-        'type': value['type'],
-    };
-}
-
+export declare function instanceOfApiFieldSchema(value: object): value is ApiFieldSchema;
+export declare function ApiFieldSchemaFromJSON(json: any): ApiFieldSchema;
+export declare function ApiFieldSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiFieldSchema;
+export declare function ApiFieldSchemaToJSON(json: any): ApiFieldSchema;
+export declare function ApiFieldSchemaToJSONTyped(value?: ApiFieldSchema | null, ignoreDiscriminator?: boolean): any;

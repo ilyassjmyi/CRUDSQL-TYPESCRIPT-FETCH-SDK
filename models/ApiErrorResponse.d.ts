@@ -1,5 +1,3 @@
-/* tslint:disable */
-/* eslint-disable */
 /**
  * CrudSQL API
  * A powerful dynamic CRUD API engine that automatically generates RESTful endpoints for your data models CrudSQL provides automatic CRUD operations, filtering, pagination, and sorting capabilities for any data model. Features: - Automatic REST API generation - Dynamic model support - Complex filtering and querying - Pagination and sorting - Swagger documentation - Multiple database support (SQL & NoSQL)
@@ -11,8 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-
-import { mapValues } from '../runtime';
 /**
  * Error response containing an error message
  * @export
@@ -26,40 +22,11 @@ export interface ApiErrorResponse {
      */
     message?: string;
 }
-
 /**
  * Check if a given object implements the ApiErrorResponse interface.
  */
-export function instanceOfApiErrorResponse(value: object): value is ApiErrorResponse {
-    return true;
-}
-
-export function ApiErrorResponseFromJSON(json: any): ApiErrorResponse {
-    return ApiErrorResponseFromJSONTyped(json, false);
-}
-
-export function ApiErrorResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiErrorResponse {
-    if (json == null) {
-        return json;
-    }
-    return {
-        
-        'message': json['message'] == null ? undefined : json['message'],
-    };
-}
-
-export function ApiErrorResponseToJSON(json: any): ApiErrorResponse {
-    return ApiErrorResponseToJSONTyped(json, false);
-}
-
-export function ApiErrorResponseToJSONTyped(value?: ApiErrorResponse | null, ignoreDiscriminator: boolean = false): any {
-    if (value == null) {
-        return value;
-    }
-
-    return {
-        
-        'message': value['message'],
-    };
-}
-
+export declare function instanceOfApiErrorResponse(value: object): value is ApiErrorResponse;
+export declare function ApiErrorResponseFromJSON(json: any): ApiErrorResponse;
+export declare function ApiErrorResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiErrorResponse;
+export declare function ApiErrorResponseToJSON(json: any): ApiErrorResponse;
+export declare function ApiErrorResponseToJSONTyped(value?: ApiErrorResponse | null, ignoreDiscriminator?: boolean): any;
