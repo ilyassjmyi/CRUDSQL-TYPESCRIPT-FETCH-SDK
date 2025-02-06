@@ -102,7 +102,6 @@ class DynamicApi extends runtime.BaseAPI {
             queryParameters['sort'] = requestParameters['sort'];
         }
         const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
         const response = await this.request({
             path: `/{model}`.replace(`{${"model"}}`, encodeURIComponent(String(requestParameters['model']))),
             method: 'GET',

@@ -20,7 +20,6 @@ class Configuration {
         this.configuration = configuration;
         this.configuration.headers = {
             "Authorization": `Bearer ${this.configuration.apiKey}`,
-          
             ...this.configuration.headers
         };
         //add fetch url 
