@@ -1,0 +1,14 @@
+.openapi-generator-ignore
+apis/DynamicApi.ts
+apis/SchemaApi.ts
+apis/index.ts
+index.ts
+models/ApiErrorResponse.ts
+models/ApiFieldSchema.ts
+models/ApiModelSchema.ts
+models/ApiRelationshipSchema.ts
+models/QueryEntityWithRelations.ts
+models/QueryFilterResponse.ts
+models/QueryQueryFilter.ts
+models/index.ts
+runtime.ts
