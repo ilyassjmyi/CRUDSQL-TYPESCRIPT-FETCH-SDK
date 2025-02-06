@@ -221,7 +221,7 @@ export class DynamicApi extends runtime.BaseAPI {
      * Retrieve a single entity by its ID
      * Get an entity by ID
      */
-    async modelIdGetRaw(requestParameters: ModelIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueryEntityWithRelations>> {
+    async modelIdGetRaw(requestParameters: ModelIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueryFilterResponse>> {
         if (requestParameters['model'] == null) {
             throw new runtime.RequiredError(
                 'model',
@@ -247,14 +247,14 @@ export class DynamicApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => QueryEntityWithRelationsFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => QueryFilterResponseFromJSON(jsonValue));
     }
 
     /**
      * Retrieve a single entity by its ID
      * Get an entity by ID
      */
-    async GetById(requestParameters: ModelIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryEntityWithRelations> {
+    async GetById(requestParameters: ModelIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction):Promise<QueryFilterResponse> {
         const response = await this.modelIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }

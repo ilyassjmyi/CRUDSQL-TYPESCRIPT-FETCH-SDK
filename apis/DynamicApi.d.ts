@@ -79,12 +79,12 @@ export declare class DynamicApi extends runtime.BaseAPI {
      * Retrieve a single entity by its ID
      * Get an entity by ID
      */
-    modelIdGetRaw(requestParameters: ModelIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueryEntityWithRelations>>;
+    modelIdGetRaw(requestParameters: ModelIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueryFilterResponse>>;
     /**
      * Retrieve a single entity by its ID
      * Get an entity by ID
      */
-    GetById(requestParameters: ModelIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryEntityWithRelations>;
+    GetById(requestParameters: ModelIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryFilterResponse>;
     /**
      * Update an existing entity by its ID
      * Update an entity

@@ -166,7 +166,7 @@ class DynamicApi extends runtime.BaseAPI {
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.QueryEntityWithRelationsFromJSON)(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.QueryFilterResponseFromJSON)(jsonValue));
     }
     /**
      * Retrieve a single entity by its ID
