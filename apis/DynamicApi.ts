@@ -124,7 +124,7 @@ export class DynamicApi extends runtime.BaseAPI {
      * Filter entities using complex conditions including field expressions, logical operations, and relationship filtering
      * Filter entities
      */
-    async modelFilterPost(requestParameters: ModelFilterPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryFilterResponse> {
+    async GetWhere(requestParameters: ModelFilterPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryFilterResponse> {
         const response = await this.modelFilterPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -171,7 +171,7 @@ export class DynamicApi extends runtime.BaseAPI {
      * Get a list of entities. Use query parameters for simple filtering or POST to /filter for complex conditions
      * List and filter entities
      */
-    async modelGet(requestParameters: ModelGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryFilterResponse> {
+    async GetMany(requestParameters: ModelGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryFilterResponse> {
         const response = await this.modelGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -213,7 +213,7 @@ export class DynamicApi extends runtime.BaseAPI {
      * Delete an entity by its ID
      * Delete an entity
      */
-    async modelIdDelete(requestParameters: ModelIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiErrorResponse> {
+    async DeleteById(requestParameters: ModelIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ApiErrorResponse> {
         const response = await this.modelIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -255,7 +255,7 @@ export class DynamicApi extends runtime.BaseAPI {
      * Retrieve a single entity by its ID
      * Get an entity by ID
      */
-    async modelIdGet(requestParameters: ModelIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryEntityWithRelations> {
+    async GetById(requestParameters: ModelIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryEntityWithRelations> {
         const response = await this.modelIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -307,7 +307,7 @@ export class DynamicApi extends runtime.BaseAPI {
      * Update an existing entity by its ID
      * Update an entity
      */
-    async modelIdPut(requestParameters: ModelIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryEntityWithRelations> {
+    async UpdateById(requestParameters: ModelIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryEntityWithRelations> {
         const response = await this.modelIdPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -352,7 +352,7 @@ export class DynamicApi extends runtime.BaseAPI {
      * Create a new entity of the specified model type
      * Create a new entity
      */
-    async modelPost(requestParameters: ModelPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryEntityWithRelations> {
+    async Create(requestParameters: ModelPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryEntityWithRelations> {
         const response = await this.modelPostRaw(requestParameters, initOverrides);
         return await response.value();
     }

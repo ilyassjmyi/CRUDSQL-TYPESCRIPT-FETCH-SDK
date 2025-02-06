@@ -79,7 +79,7 @@ class DynamicApi extends runtime.BaseAPI {
      * Filter entities using complex conditions including field expressions, logical operations, and relationship filtering
      * Filter entities
      */
-    async modelFilterPost(requestParameters, initOverrides) {
+    async GetWhere(requestParameters, initOverrides) {
         const response = await this.modelFilterPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -115,7 +115,7 @@ class DynamicApi extends runtime.BaseAPI {
      * Get a list of entities. Use query parameters for simple filtering or POST to /filter for complex conditions
      * List and filter entities
      */
-    async modelGet(requestParameters, initOverrides) {
+    async GetMany(requestParameters, initOverrides) {
         const response = await this.modelGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -144,7 +144,7 @@ class DynamicApi extends runtime.BaseAPI {
      * Delete an entity by its ID
      * Delete an entity
      */
-    async modelIdDelete(requestParameters, initOverrides) {
+    async DeleteById(requestParameters, initOverrides) {
         const response = await this.modelIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -173,7 +173,7 @@ class DynamicApi extends runtime.BaseAPI {
      * Retrieve a single entity by its ID
      * Get an entity by ID
      */
-    async modelIdGet(requestParameters, initOverrides) {
+    async GetById(requestParameters, initOverrides) {
         const response = await this.modelIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -207,7 +207,7 @@ class DynamicApi extends runtime.BaseAPI {
      * Update an existing entity by its ID
      * Update an entity
      */
-    async modelIdPut(requestParameters, initOverrides) {
+    async UpdateById(requestParameters, initOverrides) {
         const response = await this.modelIdPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -238,7 +238,7 @@ class DynamicApi extends runtime.BaseAPI {
      * Create a new entity of the specified model type
      * Create a new entity
      */
-    async modelPost(requestParameters, initOverrides) {
+    async Create(requestParameters, initOverrides) {
         const response = await this.modelPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
