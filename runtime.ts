@@ -32,7 +32,6 @@ export class Configuration {
     constructor(private configuration: ConfigurationParameters = {}) {
         this.configuration.headers = {
             "Authorization": `Bearer ${this.configuration.apiKey}`, 
-            "Content-Type": "application/json",
             ...this.configuration.headers
         };
        //add fetch url 
