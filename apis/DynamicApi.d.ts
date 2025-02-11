@@ -18,6 +18,15 @@ export interface ModelFilterPostRequest {
     pageSize?: number;
     sort?: string;
 }
+export interface ModelFilterPutRequest {
+    model: string;
+    entity: QueryEntityWithRelations;
+    filter: QueryQueryFilter;
+}
+export interface ModelFilterDeleteRequest {
+    model: string;
+    filter: QueryQueryFilter;
+}
 export interface ModelGetRequest {
     model: string;
     page?: number;
@@ -46,6 +55,34 @@ export interface ModelPostRequest {
  */
 export declare class DynamicApi extends runtime.BaseAPI {
     /**
+       * Update multiple entities that match the provided query expression
+       * Update multiple entities
+       */
+    modelFilterPutRaw(requestParameters: ModelFilterPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{
+        [key: string]: any;
+    }>>;
+    /**
+     * Update multiple entities that match the provided query expression
+     * Update multiple entities
+     */
+    UpdateWhere(requestParameters: ModelFilterPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{
+        [key: string]: any;
+    }>;
+    /**
+      * Delete multiple entities that match the provided query expression
+      * Delete multiple entities
+      */
+    modelFilterDeleteRaw(requestParameters: ModelFilterDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{
+        [key: string]: any;
+    }>>;
+    /**
+     * Delete multiple entities that match the provided query expression
+     * Delete multiple entities
+     */
+    DeleteWhere(requestParameters: ModelFilterDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{
+        [key: string]: any;
+    }>;
+    /**
      * Filter entities using complex conditions including field expressions, logical operations, and relationship filtering
      * Filter entities
      */
@@ -64,7 +101,7 @@ export declare class DynamicApi extends runtime.BaseAPI {
      * Get a list of entities. Use query parameters for simple filtering or POST to /filter for complex conditions
      * List and filter entities
      */
-    GetMany(requestParameters: ModelGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryFilterResponse>;
+    GetAll(requestParameters: ModelGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryFilterResponse>;
     /**
      * Delete an entity by its ID
      * Delete an entity

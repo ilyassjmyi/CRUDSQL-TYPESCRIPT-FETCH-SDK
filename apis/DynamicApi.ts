@@ -38,6 +38,15 @@ export interface ModelFilterPostRequest {
     pageSize?: number;
     sort?: string;
 }
+export interface ModelFilterPutRequest {
+    model: string;
+    entity: QueryEntityWithRelations;
+    filter : QueryQueryFilter;
+}
+export interface ModelFilterDeleteRequest {
+    model: string;
+    filter: QueryQueryFilter;
+}
 
 export interface ModelGetRequest {
     model: string;
@@ -71,6 +80,104 @@ export interface ModelPostRequest {
  * 
  */
 export class DynamicApi extends runtime.BaseAPI {
+
+  /**
+     * Update multiple entities that match the provided query expression
+     * Update multiple entities
+     */
+  async modelFilterPutRaw(requestParameters: ModelFilterPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    if (requestParameters['model'] == null) {
+        throw new runtime.RequiredError(
+            'model',
+            'Required parameter "model" was null or undefined when calling modelFilterPut().'
+        );
+    }
+
+    if (requestParameters['entity'] == null) {
+        throw new runtime.RequiredError(
+            'entity',
+            'Required parameter "entity" was null or undefined when calling modelFilterPut().'
+        );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request({
+        path: `/{model}/filter`.replace(`{${"model"}}`, encodeURIComponent(String(requestParameters['model']))),
+        method: 'PUT',
+        headers: headerParameters,
+        query: queryParameters,
+        body: {...QueryEntityWithRelationsToJSON(requestParameters['entity']),
+            ...QueryQueryFilterToJSON(requestParameters['filter'])
+
+        },
+    }, initOverrides);
+
+    return new runtime.JSONApiResponse<any>(response);
+}
+
+/**
+ * Update multiple entities that match the provided query expression
+ * Update multiple entities
+ */
+async UpdateWhere(requestParameters: ModelFilterPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
+    const response = await this.modelFilterPutRaw(requestParameters, initOverrides);
+    return await response.value();
+}
+
+
+
+   /**
+     * Delete multiple entities that match the provided query expression
+     * Delete multiple entities
+     */
+   async modelFilterDeleteRaw(requestParameters: ModelFilterDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<{ [key: string]: any; }>> {
+    if (requestParameters['model'] == null) {
+        throw new runtime.RequiredError(
+            'model',
+            'Required parameter "model" was null or undefined when calling modelFilterDelete().'
+        );
+    }
+
+    if (requestParameters['filter'] == null) {
+        throw new runtime.RequiredError(
+            'filter',
+            'Required parameter "filter" was null or undefined when calling modelFilterDelete().'
+        );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    headerParameters['Content-Type'] = 'application/json';
+
+    const response = await this.request({
+        path: `/{model}/filter`.replace(`{${"model"}}`, encodeURIComponent(String(requestParameters['model']))),
+        method: 'DELETE',
+        headers: headerParameters,
+        query: queryParameters,
+        body: QueryQueryFilterToJSON(requestParameters['filter']),
+    }, initOverrides);
+
+    return new runtime.JSONApiResponse<any>(response);
+}
+
+/**
+ * Delete multiple entities that match the provided query expression
+ * Delete multiple entities
+ */
+async DeleteWhere(requestParameters: ModelFilterDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<{ [key: string]: any; }> {
+    const response = await this.modelFilterDeleteRaw(requestParameters, initOverrides);
+    return await response.value();
+}
+
+
+
 
     /**
      * Filter entities using complex conditions including field expressions, logical operations, and relationship filtering
@@ -170,7 +277,7 @@ export class DynamicApi extends runtime.BaseAPI {
      * Get a list of entities. Use query parameters for simple filtering or POST to /filter for complex conditions
      * List and filter entities
      */
-    async GetMany(requestParameters: ModelGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryFilterResponse> {
+    async GetAll(requestParameters: ModelGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryFilterResponse> {
         const response = await this.modelGetRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -44,6 +44,70 @@ const index_1 = require("../models/index");
  */
 class DynamicApi extends runtime.BaseAPI {
     /**
+       * Update multiple entities that match the provided query expression
+       * Update multiple entities
+       */
+    async modelFilterPutRaw(requestParameters, initOverrides) {
+        if (requestParameters['model'] == null) {
+            throw new runtime.RequiredError('model', 'Required parameter "model" was null or undefined when calling modelFilterPut().');
+        }
+        if (requestParameters['entity'] == null) {
+            throw new runtime.RequiredError('entity', 'Required parameter "entity" was null or undefined when calling modelFilterPut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/{model}/filter`.replace(`{${"model"}}`, encodeURIComponent(String(requestParameters['model']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: { ...(0, index_1.QueryEntityWithRelationsToJSON)(requestParameters['entity']),
+                ...(0, index_1.QueryQueryFilterToJSON)(requestParameters['filter'])
+            },
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response);
+    }
+    /**
+     * Update multiple entities that match the provided query expression
+     * Update multiple entities
+     */
+    async UpdateWhere(requestParameters, initOverrides) {
+        const response = await this.modelFilterPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+      * Delete multiple entities that match the provided query expression
+      * Delete multiple entities
+      */
+    async modelFilterDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['model'] == null) {
+            throw new runtime.RequiredError('model', 'Required parameter "model" was null or undefined when calling modelFilterDelete().');
+        }
+        if (requestParameters['filter'] == null) {
+            throw new runtime.RequiredError('filter', 'Required parameter "filter" was null or undefined when calling modelFilterDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/{model}/filter`.replace(`{${"model"}}`, encodeURIComponent(String(requestParameters['model']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.QueryQueryFilterToJSON)(requestParameters['filter']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response);
+    }
+    /**
+     * Delete multiple entities that match the provided query expression
+     * Delete multiple entities
+     */
+    async DeleteWhere(requestParameters, initOverrides) {
+        const response = await this.modelFilterDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Filter entities using complex conditions including field expressions, logical operations, and relationship filtering
      * Filter entities
      */
@@ -114,7 +178,7 @@ class DynamicApi extends runtime.BaseAPI {
      * Get a list of entities. Use query parameters for simple filtering or POST to /filter for complex conditions
      * List and filter entities
      */
-    async GetMany(requestParameters, initOverrides) {
+    async GetAll(requestParameters, initOverrides) {
         const response = await this.modelGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
