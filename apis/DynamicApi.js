@@ -62,7 +62,9 @@ class DynamicApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: { ...(0, index_1.QueryEntityWithRelationsToJSON)(requestParameters['entity']),
+            body: {
+                "MainEntity": (0, index_1.QueryEntityWithRelationsToJSON)(requestParameters['entity']).mainEntity,
+                "Relations": (0, index_1.QueryEntityWithRelationsToJSON)(requestParameters['entity']).relations,
                 ...(0, index_1.QueryQueryFilterToJSON)(requestParameters['filter'])
             },
         }, initOverrides);
