@@ -61,12 +61,17 @@ class DynamicApi extends runtime.BaseAPI {
         super(...arguments);
         this.wsConnections = {};
     }
-    connectWebSocket(model, event, callback) {
-        console.log(this.configuration);
+    async connectWebSocket(model, event, callback) {
         const wsUrl = `${this.configuration.basePath.replace('http', 'ws')}/ws/${model}/${event}`;
+        const apiKeyFunction = this.configuration.apiKey; // Access apiKey function
+        let apiKey;
+        if (apiKeyFunction) {
+            apiKey = await apiKeyFunction(''); // Call the function to get the apiKey value
+        }
+        console.log(apiKey);
         const ws = new ws_1.default(wsUrl, [], {
             headers: {
-                "Authorization": "Bearer " + this.configuration.apiKey,
+                "Authorization": `Bearer ${apiKey}`,
             }
         });
         ws.on('open', () => {
