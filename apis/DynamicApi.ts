@@ -84,12 +84,13 @@ export interface ModelPostRequest {
 export class DynamicApi extends runtime.BaseAPI {
 
     private wsConnections: { [key: string]: WebSocket } = {};
-  
+    
     private connectWebSocket(model: string, event: string, callback: (event: string, model: string, data: any) => void) {
+        console.log(this.configuration)
         const wsUrl = `${this.configuration.basePath.replace('http', 'ws')}/ws/${model}/${event}`;
         const ws = new WebSocket(wsUrl, [], {
             headers: {
-                "Authorization": "Bearer " + this.configuration.config.apiKey,
+                "Authorization": "Bearer " + this.configuration.apiKey,
             }
         });
 
