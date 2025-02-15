@@ -65,7 +65,7 @@ class DynamicApi extends runtime.BaseAPI {
         const wsUrl = `${this.configuration.basePath.replace('http', 'ws')}/ws/${model}/${event}`;
         const ws = new ws_1.default(wsUrl, [], {
             headers: {
-                "Authorization": "Bearer " + this.configuration.apiKey,
+                "Authorization": "Bearer " + this.configuration.config.apiKey,
             }
         });
         ws.on('open', () => {
