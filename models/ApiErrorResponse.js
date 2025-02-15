@@ -13,18 +13,20 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApiErrorResponseToJSONTyped = exports.ApiErrorResponseToJSON = exports.ApiErrorResponseFromJSONTyped = exports.ApiErrorResponseFromJSON = exports.instanceOfApiErrorResponse = void 0;
+exports.instanceOfApiErrorResponse = instanceOfApiErrorResponse;
+exports.ApiErrorResponseFromJSON = ApiErrorResponseFromJSON;
+exports.ApiErrorResponseFromJSONTyped = ApiErrorResponseFromJSONTyped;
+exports.ApiErrorResponseToJSON = ApiErrorResponseToJSON;
+exports.ApiErrorResponseToJSONTyped = ApiErrorResponseToJSONTyped;
 /**
  * Check if a given object implements the ApiErrorResponse interface.
  */
 function instanceOfApiErrorResponse(value) {
     return true;
 }
-exports.instanceOfApiErrorResponse = instanceOfApiErrorResponse;
 function ApiErrorResponseFromJSON(json) {
     return ApiErrorResponseFromJSONTyped(json, false);
 }
-exports.ApiErrorResponseFromJSON = ApiErrorResponseFromJSON;
 function ApiErrorResponseFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
@@ -33,11 +35,9 @@ function ApiErrorResponseFromJSONTyped(json, ignoreDiscriminator) {
         'message': json['message'] == null ? undefined : json['message'],
     };
 }
-exports.ApiErrorResponseFromJSONTyped = ApiErrorResponseFromJSONTyped;
 function ApiErrorResponseToJSON(json) {
     return ApiErrorResponseToJSONTyped(json, false);
 }
-exports.ApiErrorResponseToJSON = ApiErrorResponseToJSON;
 function ApiErrorResponseToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
@@ -46,4 +46,3 @@ function ApiErrorResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'message': value['message'],
     };
 }
-exports.ApiErrorResponseToJSONTyped = ApiErrorResponseToJSONTyped;

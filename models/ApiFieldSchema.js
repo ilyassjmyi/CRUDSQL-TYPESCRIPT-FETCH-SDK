@@ -13,18 +13,20 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApiFieldSchemaToJSONTyped = exports.ApiFieldSchemaToJSON = exports.ApiFieldSchemaFromJSONTyped = exports.ApiFieldSchemaFromJSON = exports.instanceOfApiFieldSchema = void 0;
+exports.instanceOfApiFieldSchema = instanceOfApiFieldSchema;
+exports.ApiFieldSchemaFromJSON = ApiFieldSchemaFromJSON;
+exports.ApiFieldSchemaFromJSONTyped = ApiFieldSchemaFromJSONTyped;
+exports.ApiFieldSchemaToJSON = ApiFieldSchemaToJSON;
+exports.ApiFieldSchemaToJSONTyped = ApiFieldSchemaToJSONTyped;
 /**
  * Check if a given object implements the ApiFieldSchema interface.
  */
 function instanceOfApiFieldSchema(value) {
     return true;
 }
-exports.instanceOfApiFieldSchema = instanceOfApiFieldSchema;
 function ApiFieldSchemaFromJSON(json) {
     return ApiFieldSchemaFromJSONTyped(json, false);
 }
-exports.ApiFieldSchemaFromJSON = ApiFieldSchemaFromJSON;
 function ApiFieldSchemaFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
@@ -35,11 +37,9 @@ function ApiFieldSchemaFromJSONTyped(json, ignoreDiscriminator) {
         'type': json['type'] == null ? undefined : json['type'],
     };
 }
-exports.ApiFieldSchemaFromJSONTyped = ApiFieldSchemaFromJSONTyped;
 function ApiFieldSchemaToJSON(json) {
     return ApiFieldSchemaToJSONTyped(json, false);
 }
-exports.ApiFieldSchemaToJSON = ApiFieldSchemaToJSON;
 function ApiFieldSchemaToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
@@ -50,4 +50,3 @@ function ApiFieldSchemaToJSONTyped(value, ignoreDiscriminator = false) {
         'type': value['type'],
     };
 }
-exports.ApiFieldSchemaToJSONTyped = ApiFieldSchemaToJSONTyped;

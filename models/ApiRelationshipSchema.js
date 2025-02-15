@@ -13,18 +13,20 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApiRelationshipSchemaToJSONTyped = exports.ApiRelationshipSchemaToJSON = exports.ApiRelationshipSchemaFromJSONTyped = exports.ApiRelationshipSchemaFromJSON = exports.instanceOfApiRelationshipSchema = void 0;
+exports.instanceOfApiRelationshipSchema = instanceOfApiRelationshipSchema;
+exports.ApiRelationshipSchemaFromJSON = ApiRelationshipSchemaFromJSON;
+exports.ApiRelationshipSchemaFromJSONTyped = ApiRelationshipSchemaFromJSONTyped;
+exports.ApiRelationshipSchemaToJSON = ApiRelationshipSchemaToJSON;
+exports.ApiRelationshipSchemaToJSONTyped = ApiRelationshipSchemaToJSONTyped;
 /**
  * Check if a given object implements the ApiRelationshipSchema interface.
  */
 function instanceOfApiRelationshipSchema(value) {
     return true;
 }
-exports.instanceOfApiRelationshipSchema = instanceOfApiRelationshipSchema;
 function ApiRelationshipSchemaFromJSON(json) {
     return ApiRelationshipSchemaFromJSONTyped(json, false);
 }
-exports.ApiRelationshipSchemaFromJSON = ApiRelationshipSchemaFromJSON;
 function ApiRelationshipSchemaFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
@@ -35,11 +37,9 @@ function ApiRelationshipSchemaFromJSONTyped(json, ignoreDiscriminator) {
         'type': json['type'] == null ? undefined : json['type'],
     };
 }
-exports.ApiRelationshipSchemaFromJSONTyped = ApiRelationshipSchemaFromJSONTyped;
 function ApiRelationshipSchemaToJSON(json) {
     return ApiRelationshipSchemaToJSONTyped(json, false);
 }
-exports.ApiRelationshipSchemaToJSON = ApiRelationshipSchemaToJSON;
 function ApiRelationshipSchemaToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
@@ -50,4 +50,3 @@ function ApiRelationshipSchemaToJSONTyped(value, ignoreDiscriminator = false) {
         'type': value['type'],
     };
 }
-exports.ApiRelationshipSchemaToJSONTyped = ApiRelationshipSchemaToJSONTyped;

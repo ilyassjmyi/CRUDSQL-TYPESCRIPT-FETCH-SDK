@@ -14,6 +14,8 @@
 
 
 import * as runtime from '../runtime';
+import WebSocket from 'ws';
+
 import type {
   ApiErrorResponse,
   QueryEntityWithRelations,
@@ -81,6 +83,47 @@ export interface ModelPostRequest {
  */
 export class DynamicApi extends runtime.BaseAPI {
 
+    private wsConnections: { [key: string]: WebSocket } = {};
+  
+    private connectWebSocket(model: string, event: string, callback: (event: string, model: string, data: any) => void) {
+        const wsUrl = `${this.configuration.basePath.replace('http', 'ws')}/ws/${model}/${event}`;
+        const ws = new WebSocket(wsUrl,{
+            
+                headers: {
+                    Authorization: "Bearer "+this.configuration.apiKey,  
+                }
+            }
+        );
+
+        ws.on('open', () => {
+            console.log(`Connected to WebSocket for ${model} ${event} events`);
+        });
+
+        ws.on('message', (message) => {
+            const parsedMessage = JSON.parse(message.toString());
+            callback(parsedMessage.event, parsedMessage.model, parsedMessage.data);
+        });
+
+        ws.on('close', () => {
+            console.log(`WebSocket connection for ${model} ${event} events closed`);
+        });
+
+        ws.on('error', (error) => {
+            console.error(`WebSocket error for ${model} ${event} events:`, error);
+        });
+
+        this.wsConnections[`${model}-${event}`] = ws;
+    }
+    public listen(model: string, event: string, callback: (event: string, model :string,data:any ) => void) {
+        this.connectWebSocket(model, event,callback);
+    }
+
+  
+
+    public closeWebSocketConnections() {
+        Object.values(this.wsConnections).forEach(ws => ws.close());
+        this.wsConnections = {};
+    }
   /**
      * Update multiple entities that match the provided query expression
      * Update multiple entities

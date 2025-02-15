@@ -13,18 +13,20 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QueryEntityWithRelationsToJSONTyped = exports.QueryEntityWithRelationsToJSON = exports.QueryEntityWithRelationsFromJSONTyped = exports.QueryEntityWithRelationsFromJSON = exports.instanceOfQueryEntityWithRelations = void 0;
+exports.instanceOfQueryEntityWithRelations = instanceOfQueryEntityWithRelations;
+exports.QueryEntityWithRelationsFromJSON = QueryEntityWithRelationsFromJSON;
+exports.QueryEntityWithRelationsFromJSONTyped = QueryEntityWithRelationsFromJSONTyped;
+exports.QueryEntityWithRelationsToJSON = QueryEntityWithRelationsToJSON;
+exports.QueryEntityWithRelationsToJSONTyped = QueryEntityWithRelationsToJSONTyped;
 /**
  * Check if a given object implements the QueryEntityWithRelations interface.
  */
 function instanceOfQueryEntityWithRelations(value) {
     return true;
 }
-exports.instanceOfQueryEntityWithRelations = instanceOfQueryEntityWithRelations;
 function QueryEntityWithRelationsFromJSON(json) {
     return QueryEntityWithRelationsFromJSONTyped(json, false);
 }
-exports.QueryEntityWithRelationsFromJSON = QueryEntityWithRelationsFromJSON;
 function QueryEntityWithRelationsFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
@@ -34,11 +36,9 @@ function QueryEntityWithRelationsFromJSONTyped(json, ignoreDiscriminator) {
         'relations': json['relations'] == null ? undefined : json['relations'],
     };
 }
-exports.QueryEntityWithRelationsFromJSONTyped = QueryEntityWithRelationsFromJSONTyped;
 function QueryEntityWithRelationsToJSON(json) {
     return QueryEntityWithRelationsToJSONTyped(json, false);
 }
-exports.QueryEntityWithRelationsToJSON = QueryEntityWithRelationsToJSON;
 function QueryEntityWithRelationsToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
@@ -48,4 +48,3 @@ function QueryEntityWithRelationsToJSONTyped(value, ignoreDiscriminator = false)
         'relations': value['relations'],
     };
 }
-exports.QueryEntityWithRelationsToJSONTyped = QueryEntityWithRelationsToJSONTyped;

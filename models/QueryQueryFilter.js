@@ -13,18 +13,20 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QueryQueryFilterToJSONTyped = exports.QueryQueryFilterToJSON = exports.QueryQueryFilterFromJSONTyped = exports.QueryQueryFilterFromJSON = exports.instanceOfQueryQueryFilter = void 0;
+exports.instanceOfQueryQueryFilter = instanceOfQueryQueryFilter;
+exports.QueryQueryFilterFromJSON = QueryQueryFilterFromJSON;
+exports.QueryQueryFilterFromJSONTyped = QueryQueryFilterFromJSONTyped;
+exports.QueryQueryFilterToJSON = QueryQueryFilterToJSON;
+exports.QueryQueryFilterToJSONTyped = QueryQueryFilterToJSONTyped;
 /**
  * Check if a given object implements the QueryQueryFilter interface.
  */
 function instanceOfQueryQueryFilter(value) {
     return true;
 }
-exports.instanceOfQueryQueryFilter = instanceOfQueryQueryFilter;
 function QueryQueryFilterFromJSON(json) {
     return QueryQueryFilterFromJSONTyped(json, false);
 }
-exports.QueryQueryFilterFromJSON = QueryQueryFilterFromJSON;
 function QueryQueryFilterFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
@@ -33,11 +35,9 @@ function QueryQueryFilterFromJSONTyped(json, ignoreDiscriminator) {
         'expressions': json['expressions'] == null ? undefined : json['expressions'],
     };
 }
-exports.QueryQueryFilterFromJSONTyped = QueryQueryFilterFromJSONTyped;
 function QueryQueryFilterToJSON(json) {
     return QueryQueryFilterToJSONTyped(json, false);
 }
-exports.QueryQueryFilterToJSON = QueryQueryFilterToJSON;
 function QueryQueryFilterToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
@@ -46,4 +46,3 @@ function QueryQueryFilterToJSONTyped(value, ignoreDiscriminator = false) {
         'expressions': value['expressions'],
     };
 }
-exports.QueryQueryFilterToJSONTyped = QueryQueryFilterToJSONTyped;

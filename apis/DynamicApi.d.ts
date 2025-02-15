@@ -54,6 +54,10 @@ export interface ModelPostRequest {
  *
  */
 export declare class DynamicApi extends runtime.BaseAPI {
+    private wsConnections;
+    private connectWebSocket;
+    listen(model: string, event: string, callback: (event: string, model: string, data: any) => void): void;
+    closeWebSocketConnections(): void;
     /**
        * Update multiple entities that match the provided query expression
        * Update multiple entities

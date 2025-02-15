@@ -13,7 +13,11 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApiModelSchemaToJSONTyped = exports.ApiModelSchemaToJSON = exports.ApiModelSchemaFromJSONTyped = exports.ApiModelSchemaFromJSON = exports.instanceOfApiModelSchema = void 0;
+exports.instanceOfApiModelSchema = instanceOfApiModelSchema;
+exports.ApiModelSchemaFromJSON = ApiModelSchemaFromJSON;
+exports.ApiModelSchemaFromJSONTyped = ApiModelSchemaFromJSONTyped;
+exports.ApiModelSchemaToJSON = ApiModelSchemaToJSON;
+exports.ApiModelSchemaToJSONTyped = ApiModelSchemaToJSONTyped;
 const ApiRelationshipSchema_1 = require("./ApiRelationshipSchema");
 const ApiFieldSchema_1 = require("./ApiFieldSchema");
 /**
@@ -22,11 +26,9 @@ const ApiFieldSchema_1 = require("./ApiFieldSchema");
 function instanceOfApiModelSchema(value) {
     return true;
 }
-exports.instanceOfApiModelSchema = instanceOfApiModelSchema;
 function ApiModelSchemaFromJSON(json) {
     return ApiModelSchemaFromJSONTyped(json, false);
 }
-exports.ApiModelSchemaFromJSON = ApiModelSchemaFromJSON;
 function ApiModelSchemaFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
@@ -36,11 +38,9 @@ function ApiModelSchemaFromJSONTyped(json, ignoreDiscriminator) {
         'relationships': json['relationships'] == null ? undefined : (json['relationships'].map(ApiRelationshipSchema_1.ApiRelationshipSchemaFromJSON)),
     };
 }
-exports.ApiModelSchemaFromJSONTyped = ApiModelSchemaFromJSONTyped;
 function ApiModelSchemaToJSON(json) {
     return ApiModelSchemaToJSONTyped(json, false);
 }
-exports.ApiModelSchemaToJSON = ApiModelSchemaToJSON;
 function ApiModelSchemaToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
@@ -50,4 +50,3 @@ function ApiModelSchemaToJSONTyped(value, ignoreDiscriminator = false) {
         'relationships': value['relationships'] == null ? undefined : (value['relationships'].map(ApiRelationshipSchema_1.ApiRelationshipSchemaToJSON)),
     };
 }
-exports.ApiModelSchemaToJSONTyped = ApiModelSchemaToJSONTyped;

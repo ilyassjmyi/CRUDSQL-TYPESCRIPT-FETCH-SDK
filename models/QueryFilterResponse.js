@@ -13,18 +13,20 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QueryFilterResponseToJSONTyped = exports.QueryFilterResponseToJSON = exports.QueryFilterResponseFromJSONTyped = exports.QueryFilterResponseFromJSON = exports.instanceOfQueryFilterResponse = void 0;
+exports.instanceOfQueryFilterResponse = instanceOfQueryFilterResponse;
+exports.QueryFilterResponseFromJSON = QueryFilterResponseFromJSON;
+exports.QueryFilterResponseFromJSONTyped = QueryFilterResponseFromJSONTyped;
+exports.QueryFilterResponseToJSON = QueryFilterResponseToJSON;
+exports.QueryFilterResponseToJSONTyped = QueryFilterResponseToJSONTyped;
 /**
  * Check if a given object implements the QueryFilterResponse interface.
  */
 function instanceOfQueryFilterResponse(value) {
     return true;
 }
-exports.instanceOfQueryFilterResponse = instanceOfQueryFilterResponse;
 function QueryFilterResponseFromJSON(json) {
     return QueryFilterResponseFromJSONTyped(json, false);
 }
-exports.QueryFilterResponseFromJSON = QueryFilterResponseFromJSON;
 function QueryFilterResponseFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
@@ -37,11 +39,9 @@ function QueryFilterResponseFromJSONTyped(json, ignoreDiscriminator) {
         'totalPages': json['total_pages'] == null ? undefined : json['total_pages'],
     };
 }
-exports.QueryFilterResponseFromJSONTyped = QueryFilterResponseFromJSONTyped;
 function QueryFilterResponseToJSON(json) {
     return QueryFilterResponseToJSONTyped(json, false);
 }
-exports.QueryFilterResponseToJSON = QueryFilterResponseToJSON;
 function QueryFilterResponseToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
@@ -54,4 +54,3 @@ function QueryFilterResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'total_pages': value['totalPages'],
     };
 }
-exports.QueryFilterResponseToJSONTyped = QueryFilterResponseToJSONTyped;
